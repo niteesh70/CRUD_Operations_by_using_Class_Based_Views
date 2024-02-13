@@ -1,0 +1,40 @@
+{% extends 'app/dummy.html' %}
+
+{% block title %}
+    <title>School Detail</title>
+{% endblock %}
+
+{% block body_block %}
+    <center>
+        <h1>Detail Information of {{SO.sname}}</h1>
+
+        <h2>Name of the school is {{SO.sname}}</h2>
+        
+        <h2>Principal of the school is {{SO.sprincipal}}</h2>
+
+        
+        <h2>location of the school is {{SO.slocation}}</h2>
+
+<h1>Student Details Are</h1>
+
+<table border="3px">
+    <tr>
+        <th>Student Name</th>
+        <th>Student age</th>
+    </tr>
+
+    {% for st in SO.students.all %}
+        <tr>
+            <td>{{st.stname}}</td>
+            <td>{{st.stage}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<a href="{% url 'SchoolUpdate' pk=SO.pk %}" class="btn btn-primary">SchoolUpdate</a>
+
+<a href="{% url 'SchoolDelete' pk=SO.pk %}" class="btn btn-secondary">SchoolDelete</a>
+
+
+    </center>
+{% endblock %}

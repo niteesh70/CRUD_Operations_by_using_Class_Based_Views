@@ -1,0 +1,18 @@
+{% extends 'app/dummy.html' %}
+{% block title %}
+    <title>Document</title>
+{% endblock %}
+
+{% block body_block %}
+    <center>
+        <h1>Are You Sure to Delete the {{sclobj.sname}}</h1>
+        <form method="POST">
+            {% csrf_token %}
+
+            <input type="submit" value="Yes,I'm Sure">
+        </form>
+
+        <a href="{% url 'Schoollist' %}" class="btn btn-info">No,take back me to Schoollist</a>
+        <a href="{% url 'detail' pk=sclobj.pk %}" class="btn btn-info">No,take back me to SchoolDetail</a>
+    </center>
+{% endblock %}
